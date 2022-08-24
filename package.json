@@ -1,7 +1,7 @@
 {
   "name": "browser-file-system-access-helper",
   "version": "1.0.1",
-  "description": "basic functions to help with use of new browser file system access api",
+  "description": "helper functions for the new new browser file system access api",
   "main": "index.js",
   "author": "Paa-Kofi Aidoo",
   "license": "MIT"
