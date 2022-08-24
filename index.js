@@ -1,4 +1,3 @@
-// @ts-ignore
 export const hasFileSystemAccess = () => !!window.showOpenFilePicker;
 
 // Language: javascript
@@ -6,7 +5,6 @@ export const hasFileSystemAccess = () => !!window.showOpenFilePicker;
 export async function getFile(options = {}) {
     if (hasFileSystemAccess()) {
         let [fileHandle] = await window.showOpenFilePicker(options);
-        const file = await fileHandle.getFile();
-        return file;
+        return { fileHandle, file: await fileHandle.getFile(), kind: fileHandle.kind, writeTo: await fileHandle.createWritable, moveTo: await fileHandle.move, name: fileHandle.name };
     }
 }

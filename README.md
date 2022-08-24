@@ -1,4 +1,5 @@
 # browser-file-system-access-helper
+
 This is a package with basic functions to help uning the new [file system access api](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API)
 
 Prerequisites
@@ -12,12 +13,20 @@ To install run
 
     npm install browser-file-system-access-helper
 
-
 ## Functions
 
 1. `hasFileSystemAccess` : returns the boolean value if the browser is compatible with the api
-    
+
         if (hasFileSystemAccess()) {
                 
         }
+        // true : browser is compatible
+        // false : browser is not compatible
 
+2. `getFile` : returns selected file asynchronously
+
+        let file = await getFile()
+        // or
+        getFile().then((f)=>{
+            console.log(f, "file")
+        })
