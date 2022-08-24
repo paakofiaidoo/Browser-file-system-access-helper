@@ -1,7 +1,15 @@
 {
   "name": "browser-file-system-access-helper",
   "version": "1.0.1",
-  "description": "helper functions for the new new browser file system access api",
+  "description": "Helper functions for the new new browser file system access api",
+  "repository": "https://github.com/paakofiaidoo/Browser-file-system-access-helper",
+  "keywords": [
+    "file-system-access",
+    "browser",
+    "file-system",
+    "file",
+    "file-system-access-api"
+  ],
   "main": "index.js",
   "author": "Paa-Kofi Aidoo",
   "license": "MIT"
