@@ -30,3 +30,19 @@ To install run
         getFile().then((f)=>{
             console.log(f, "file")
         })
+
+
+<!-- 
+// just pass in the data (no options)
+write(data);
+
+// writes the data to the stream from the determined position
+write({ type: "write", position, data });
+
+// updates the current file cursor offset to the position specified
+write({ type: "seek", position });
+
+// resizes the file to be size bytes long
+write({ type: "truncate", size }); -->
+
+<!-- arraybuffer().then((e) => console.log(e)); -->
