@@ -1,4 +1,6 @@
-export const hasFileSystemAccess = () => !!window.showOpenFilePicker;
+import { get, set } from 'idb-keyval';
+
+export const hasFileSystemAccess = () => !!window || !!window.showOpenFilePicker;
 
 // Language: javascript
 
@@ -9,7 +11,7 @@ export async function getFile(options = {}) {
     }
 }
 
-const file = async (fileHandle) => {
+export const file = async (fileHandle) => {
     const file = await fileHandle.getFile();
     return {
         // fileHandle,
@@ -24,7 +26,7 @@ const file = async (fileHandle) => {
         stream: () => {
             return file.stream();
         },
-        arraybuffer: () => {
+        arrayBuffer: () => {
             return file.arrayBuffer();
         },
         // writeIn is to allow the user to write in the file
