@@ -3,9 +3,9 @@
 
 name: Node.js Package npm
 
-on:
-  release:
-    types: [created]
+# on:
+#   release:
+#     types: [created]
 
 jobs:
   build:
