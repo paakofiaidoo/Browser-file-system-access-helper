@@ -3,9 +3,12 @@
 
 name: Node.js Package github
 
-# on:
-#   release:
-#     types: [created]
+on:
+  push:
+    branches:
+    - main
+  release:
+    types: [created]
 
 jobs:
   build:
