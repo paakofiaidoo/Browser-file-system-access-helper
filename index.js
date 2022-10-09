@@ -1,4 +1,4 @@
-import { get, set } from 'idb-keyval';
+import { get, set } from "idb-keyval";
 
 export const hasFileSystemAccess = () => !!window || !!window.showOpenFilePicker;
 
@@ -71,18 +71,29 @@ export async function createFile(options = {}) {
 
 export async function getDirectories(options = {}) {
     if (hasFileSystemAccess()) {
-        let [fileHandle] = await window.showOpenFilePicker(options);
-        return {
-            // fileHandle,
-            file: await fileHandle.getFile(),
-            kind: fileHandle.kind,
-            // writeIn is to allow the user to write in the file
-            write: async (input) => {
-                const writableStream = await fileHandle.createWritable();
-                await writableStream.write(input);
-                await writableStream.close();
-            },
-            name: fileHandle.name,
-        };
+        const dirHandle = await window.showDirectoryPicker();
+        const promises = await folder(dirHandle).then((data) => {
+            console.log(data);
+
+        }).catch((err) => {
+            
+        });;
+        // console.log(promises);
+       
+        return promises;
     }
 }
+const folder = async (dirHandle) => {
+    const promises = [];
+    for await (const entry of dirHandle.values()) {
+        if (entry.kind !== "file") {
+            let p = { name: entry.name, dir: await folder(entry) };
+            promises.push(p);
+        } else {
+            // promises.push(getFile(entry));
+            promises.push(entry.name);
+        }
+    }
+
+    return { name: dirHandle.name, dir: promises };
+};
