@@ -1,6 +1,6 @@
 {
   "name": "browser-file-system-access-helper",
-  "version": "1.0.4",
+  "version": "0.0.4",
   "description": "Helper functions for the new new browser file system access api",
   "repository": "https://github.com/paakofiaidoo/Browser-file-system-access-helper",
   "keywords": [
